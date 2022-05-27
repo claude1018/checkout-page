@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./images/devchallenges.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Checkout Page</title>
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="container">
+      <h1 class="header__title">Checkout</h1>
+    </header>
+    <!-- Site main -->
+    <main class="container row-reverse">
+      <div class="col">
+        <!-- Checkout items -->
+        <div class="card card--dark">
+          <div class="card__wrapper flex flex__jc--c flex__ai--c">
+            <figure class="width--full">
+              <img
+                class="card__image"
+                src="./images/photo1.png"
+                alt="a vintage bag"
+              />
+            </figure>
+            <div class="card__details width--full">
+              <strong class="card__name">Vintage Backbag</strong>
+              <p class="card__price card__price--new dollar--before">54.99</p>
+              <s class="card__price card__price--old dollar--before">94.99</s>
+              <div class="card__quantity flex flex__ai--c flex__jc--sb">
+                <button class="card__button card__button--decrement mui--font">
+                  remove
+                </button>
+                <span class="card__quantity--indicator">0</span>
+                <button class="card__button card__button--increment mui--font">
+                  add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card__wrapper flex flex__jc--c flex__ai--c">
+            <figure class="width--full">
+              <img
+                class="card__image"
+                src="./images/photo2.png"
+                alt="a levi shoes"
+              />
+            </figure>
+            <div class="card__details width--full">
+              <strong class="card__name">Levi Shoes</strong>
+              <p class="card__price card__price--new dollar--before">74.99</p>
+              <s class="card__price card__price--old dollar--before">124.99</s>
+              <div class="card__quantity flex flex__ai--c flex__jc--sb">
+                <button class="card__button card__button--decrement mui--font">
+                  remove
+                </button>
+                <span class="card__quantity--indicator">0</span>
+                <button class="card__button card__button--increment mui--font">
+                  add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card__total">
+            <div class="total__wrapper flex flex__ai--c flex__jc--sb">
+              <p class="card__title--medium">shipping</p>
+              <p class="card__cost dollar--before" id="shipping-cost">19</p>
+            </div>
+            <div class="total__wrapper flex flex__ai--c flex__jc--sb">
+              <p class="card__title--medium">total</p>
+              <p class="card__cost dollar--before" id="total-cost">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <form id="purchase-form" action="/" method="GET">
+          <!-- contact information input -->
+          <h2 class="form__title">contact information</h2>
+          <!-- email -->
+          <div class="form__container">
+            <label class="form__label" for="email">email</label>
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">email</i>
+              <input class="form__input" id="email" type="email" name="email"
+              placeholder="Your email..."
+            </div>
+          </div>
+          <!-- phone -->
+          <div class="form__container">
+            <label class="form__label" for="phone">phone</label>
+
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">phone</i>
+              <input
+                class="form__input"
+                id="phone"
+                type="phone"
+                name="phone"
+                placeholder="Your phone..."
+              />
+            </div>
+          </div>
+          <!-- Shipping address inputs -->
+          <h2 class="form__title">shipping address</h2>
+          <!-- fullname -->
+          <div class="form__container">
+            <label class="form__label" for="fullname">full name</label>
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">person</i>
+              <input
+                class="form__input"
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Your fullname..."
+              />
+            </div>
+          </div>
+          <!-- home -->
+          <div class="form__container">
+            <label class="form__label" for="address">address</label>
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">home</i>
+              <input
+                class="form__input"
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Your address"
+              />
+            </div>
+          </div>
+          <!-- city -->
+          <div class="form__container">
+            <label class="form__label" for="city">city</label>
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">location_city</i>
+              <input
+                class="form__input"
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Your city..."
+              />
+            </div>
+          </div>
+          <!-- country -->
+          <div class="form__container">
+            <label class="form__label" for="countries">Country</label>
+            <div class="input__container flex flex__ai--c">
+              <i class="mui--font">location_city</i>
+              <select id="country" name="country" class="form__countries">
+                <option disabled selected>Your country...</option>
+              </select>
+            </div>
+          </div>
+          <!-- postal code -->
+          <div class="form__container">
+            <label class="form__label" for="postal">postal code</label>
+            <div class="input__container flex flex__ai--c flex">
+              <i class="mui--font">markunread_mailbox</i>
+              <input
+                class="form__input"
+                type="text"
+                id="postal"
+                name="postal"
+                placeholder="Your postal code..."
+              />
+            </div>
+          </div>
+          <!-- Save Element - checkbox -->
+          <div class="form__container">
+            <label class="form__saveinfo" for="form__checkbox">
+              <input id="form__checkbox" type="checkbox" />
+              <span class="dummy__checkbox"></span>
+              Save this information for next time
+            </label>
+          </div>
+          <button id="submit" class="form__submit" type="submit">
+            continue
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer class="container">
+      <div class="attribution">
+        created by
+        <a href="https://github.com/claude1018" target="_blank">claude</a> -
+        devChallenges.io
+      </div>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>

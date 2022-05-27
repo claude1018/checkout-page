@@ -1,0 +1,400 @@
+/* File markers
+*
+* Global Styles     --- @@gsc
+*  - classes        --- @@class
+* Typography        --- @@types
+* Layout            --- @@layouts
+*  - Header         --- @@header
+*  - Main           --- @@main
+*    - Items        --- @@items
+*    - Inputs       --- @@inputs
+*  - Footer         --- @@footer
+*    - Attribution  --- @@attribution
+* Media Queries     --- @@media-queries
+* Animations        --- @@keyframes
+*  
+*/
+
+:root {
+  --primary-font: "Montserrat", sans-serif;
+  --orange: #f2994a;
+  --gray-1: #333333;
+  --gray-2: #4e5150;
+  --gray-3: #828282;
+  --gray-4: #bdbdbd;
+  --gray-5: #e0e0e0;
+}
+/* @@gsc */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+body {
+  font-family: var(--primary-font);
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* @@class */
+.container {
+  width: 93%;
+  max-width: 1288px;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+}
+.flex__jc--sb {
+  justify-content: space-between;
+}
+.flex__jc--c {
+  justify-content: center;
+}
+.flex__ai--c {
+  align-items: center;
+}
+
+.width--full {
+  width: 100%;
+}
+
+.dollar--before::before {
+  content: "$";
+}
+/* @@types */
+
+.mui--font {
+  font-family: "Material Icons";
+  font-style: normal;
+}
+
+/* @@layouts */
+/* @@header */
+header {
+  grid-area: header;
+  padding: 2em 0;
+}
+.header__title {
+  color: var(--gray-2);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.875rem;
+}
+
+/* @@main */
+main {
+  grid-area: main;
+}
+/* @@items */
+.card__wrapper {
+  width: 85%;
+}
+/* add spacing between cart items */
+.card__wrapper + .card__wrapper {
+  margin-top: 1em;
+}
+
+.card__image {
+  border-radius: 0.75rem;
+}
+
+.card__details {
+  align-self: flex-start;
+  margin-left: 1.5em;
+}
+/* Card details content styling */
+.card__name {
+  color: var(--gray-2);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 0.9375rem;
+}
+
+.card__price--new {
+  color: var(--orange);
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+}
+.card__price--old {
+  display: inline;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 0.75rem;
+  margin-left: 1em;
+}
+/* Item Quantity toggle styling */
+
+.card__quantity {
+  border: 1px solid var(--gray-3);
+  border-radius: 0.75rem;
+  padding: 1em 0.65em;
+}
+.card__button--decrement,
+.card__button--increment {
+  background: var(--gray-5);
+  border: none;
+  border-radius: 4px;
+  color: var(--gray-3);
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 0;
+  outline: none;
+  padding: 0.65em 0.15em;
+  text-align: center;
+}
+
+.card__quantity--indicator {
+  color: var(--gray-1);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.card__total {
+  margin-top: 4em;
+}
+
+.total__wrapper {
+  border-top: 1px solid var(--gray-4);
+}
+
+.card__title--medium {
+  color: var(--gray-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+  text-transform: capitalize;
+}
+.card__cost {
+  color: var(--gray-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+}
+
+/* @@inputs */
+.form__title {
+  color: var(--gray-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+}
+.form__container ~ .form__title {
+  margin-top: 2em;
+}
+.form__title::first-letter {
+  text-transform: uppercase;
+}
+
+.form__container + .form__container {
+  margin-top: 1em;
+}
+.form__container i {
+  line-height: 0;
+}
+.form__label {
+  color: var(--gray-2);
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 0.75rem;
+  text-transform: capitalize;
+}
+.input__container {
+  border: 1px solid var(--gray-3);
+  border-radius: 0.75rem;
+  color: var(--gray-1);
+  margin-top: 0.15em;
+  padding: 0.7em 0.45em;
+}
+
+/* Error styling of custom inputs */
+
+.input__container[data-error] {
+  color: #c92342;
+  background: #fffafa;
+  border: 1px solid #c92342;
+  margin-bottom: 1.65em;
+  position: relative;
+}
+.input__container[data-error] i {
+  color: #c92342;
+}
+.input__container[data-error]::after {
+  content: "error";
+  font-family: "Material Icons";
+}
+
+.input__container[data-error]::before {
+  bottom: -2.2em;
+  content: attr(data-error);
+  font-size: 0.625em;
+  left: 0;
+  position: absolute;
+}
+
+.input__container i {
+  color: var(--gray-3);
+  font-size: 1.2em;
+  margin-right: 0.25em;
+}
+
+.form__input,
+.form__countries {
+  color: currentColor;
+  background: none;
+  border: none;
+  font-weight: 600;
+  outline: none;
+  width: 100%;
+}
+
+.form__input::placeholder {
+  color: var(--gray-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 0.9375rem;
+}
+/* Checkbox styling */
+.form__saveinfo {
+  align-items: center;
+  color: var(--gray-2);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 0.75rem;
+}
+
+#form__checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.dummy__checkbox {
+  border: 1px solid var(--gray-3);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.45em;
+  padding: 0.7em;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+#form__checkbox:checked + .dummy__checkbox {
+  background: var(--orange);
+  border-color: var(--orange);
+  position: relative;
+}
+#form__checkbox:checked + .dummy__checkbox::before {
+  color: #fff;
+  content: "check";
+  bottom: 0;
+  display: inline;
+  font-family: "Material Icons";
+  font-size: 1rem;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 0.4s ease-in-out;
+}
+.form__submit {
+  background: var(--orange);
+  border: none;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  margin: 1em 0 1em auto;
+  outline: none;
+  padding: 1em 2em;
+  text-transform: capitalize;
+}
+
+/* @@footer */
+footer {
+  grid-area: footer;
+}
+/* @@attribution */
+.attribution {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1, 125rem;
+  color: #bdbdbd;
+  padding-top: 5em;
+  /* identical to box height */
+  text-align: center;
+}
+.attribution a {
+  color: currentColor;
+  font-weight: 700;
+}
+/* @@media-queries */
+@media (min-width: 900px) {
+  .row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .col + .col {
+    margin-right: 4em;
+  }
+  .card--dark {
+    padding: 1.5em;
+    background: #f2f2f2;
+    border-radius: 0.75rem;
+    max-width: 24rem;
+  }
+  .header__title {
+    font-size: 2.25rem;
+  }
+  .form__title {
+    font-size: 1.125rem;
+  }
+  .card__name,
+  .form__input {
+    font-size: 1rem;
+  }
+  .card__price--new {
+    font-size: 0.875rem;
+  }
+  .card__price--old,
+  .form__saveinfo {
+    font-size: 0.75rem;
+  }
+  .card__title--medium {
+    font-size: 1.125rem;
+  }
+}
