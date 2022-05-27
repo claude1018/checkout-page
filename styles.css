@@ -370,6 +370,7 @@ footer {
   }
   .col + .col {
     margin-right: 4em;
+    width: 50%;
   }
   .card--dark {
     padding: 1.5em;
